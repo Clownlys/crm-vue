@@ -46,47 +46,28 @@
         </el-table-column>
         <el-table-column
             align="center"
-            prop="supplierName"
-            label="运营商名称"
+            prop="brandName"
+            label="品牌名称"
         >
         </el-table-column>
           <el-table-column
                   align="center"
-                  prop="supplierContact"
-                  label="联系人"
+                  prop="brandSite"
+                  label="品牌网址"
           >
           </el-table-column>
           <el-table-column
                   align="center"
-                  prop="supplierPhone"
-                  label="联系电话"
+                  prop="brandDesc"
+                  label="品牌描述"
           >
           </el-table-column>
           <el-table-column
                   align="center"
-                  prop="supplierEmail"
-                  label="联系邮箱"
+                  prop="brandLogo"
+                  label="品牌logo"
           >
           </el-table-column>
-          <el-table-column
-                  align="center"
-                  prop="supplierBrank"
-                  label="开户行"
-          >
-          </el-table-column>
-          <el-table-column
-                  align="center"
-                  prop="supplierBrankCode"
-                  label="开户账号"
-          >
-          </el-table-column>
-        <el-table-column
-            align="center"
-            prop="supplierAddress"
-            show-overflow-tooltip
-            label="联系地址">
-        </el-table-column>
-
         <el-table-column
             align="center"
             label="操作"
@@ -120,41 +101,21 @@
     </div>
 
     <!--新建或者编辑弹框-->
-    <el-dialog title="供货商操作" :visible.sync="dialogFormVisible" width="40%">
+    <el-dialog title="品牌操作" :visible.sync="dialogFormVisible" width="40%">
       <el-form :model="formData" label-width="100px" size="small">
-        <el-form-item label="运营商名称">
-          <el-input v-model="formData.supplierName" placeholder="运营商名称"></el-input>
+        <el-form-item label="品牌名称">
+          <el-input v-model="formData.brandName" placeholder="品牌名称"></el-input>
         </el-form-item>
-        <el-row >
-          <el-col :span="12">
-            <el-form-item label="联系人" >
-              <el-input v-model="formData.supplierContact" placeholder="联系人"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="联系电话" >
-              <el-input v-model="formData.supplierPhone" placeholder="联系电话"></el-input>
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-form-item label="联系邮箱" >
-          <el-input v-model="formData.supplierEmail" placeholder="联系邮箱"></el-input>
+        <el-form-item label="品牌网址" >
+          <el-input v-model="formData.brandSite" placeholder="品牌网址"></el-input>
         </el-form-item>
-        <el-form-item label="联系地址" >
-          <el-input v-model="formData.supplierAddress" placeholder="联系地址"></el-input>
+        <el-form-item label="品牌描述" >
+          <el-input v-model="formData.brandDesc" placeholder="品牌描述"></el-input>
         </el-form-item>
-        <el-row>
-          <el-col :span="12">
-            <el-form-item label="开户行" >
-              <el-input v-model="formData.supplierBrank" placeholder="开户行"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="开户账号" >
-              <el-input v-model="formData.supplierBrankCode" placeholder="开户账号"></el-input>
-            </el-form-item>
-          </el-col>
-        </el-row>
+        <el-form-item label="品牌Logo" >
+          <el-input v-model="formData.brandLogo" placeholder="品牌Logo"></el-input>
+        </el-form-item>
+
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false" size="mini">取 消</el-button>
