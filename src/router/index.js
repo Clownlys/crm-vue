@@ -38,6 +38,11 @@ const routes = [
                 component: () => import('../views/brand/index.vue')
             },
             {
+                path: 'category',
+                name: 'category',
+                component: () => import('../views/category/index.vue')
+            },
+            {
                 path: 'order',
                 name: 'order',
                 component: ()=> import('../views/order/index.vue')
