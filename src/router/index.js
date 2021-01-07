@@ -45,8 +45,22 @@ const routes = [
             {
                 path: 'order',
                 name: 'order',
-                component: ()=> import('../views/order/index.vue')
-            }
+                component: () => import('../views/order/index.vue'),
+                children: [
+                    {
+                        path: 'orderDetail',
+                        name: 'orderDetail',
+                        component: () => import('../views/orderDetail/index')
+                    },
+                    {
+                        path: 'ordermanager',
+                        name: 'ordermanager',
+                        component: () => import('../views/ordermanager/index.vue')
+                    }
+
+                ]
+            },
+
         ]
 
     },
