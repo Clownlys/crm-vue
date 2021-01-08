@@ -60,6 +60,17 @@ const routes = [
 
                 ]
             },
+            /*售后相关*/
+            {
+                path: 'outStore',
+                name: 'outStore',
+                component: ()=> import('../views/outStore/index.vue')
+            },
+            {
+                path: 'outGoodInfo',
+                name: 'outGoodInfo',
+                component: ()=> import('../views/outGoodInfo/index.vue')
+            }
 
         ]
 
