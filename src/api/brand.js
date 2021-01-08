@@ -1,5 +1,12 @@
 import axios from '../utils/baseAxios'
 let brand={
+
+   findNoPage(){
+       return axios.get(`brand/findNoPage`)
+   },
+    searchPage(currentPage,pageSize,formInLine){
+        return axios.get(`brand?currentPage=${currentPage}&pageSize=${pageSize}&brandName=${formInLine}`)
+    },
     /**
      * findAll
      */

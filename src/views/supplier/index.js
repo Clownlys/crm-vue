@@ -12,6 +12,7 @@ export default {
             formData:{},
             ids:[],
             dialogDeleteVisible:false,
+            searchForm:{}
         }
     },
     created() {
@@ -19,7 +20,7 @@ export default {
     },
     methods: {
         async findAll() {
-            let response = await supplier.findAll(this.currentPage, this.pageSize)
+            let response = await supplier.findAll(this.currentPage, this.pageSize,this.searchForm)
             this.tableData = response.list;
             this.total=response.total;
         },

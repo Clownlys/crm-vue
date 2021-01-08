@@ -3,8 +3,11 @@ let supplier={
     /**
      * findAll
      */
-    findAll(currentPage,pageSize){
-        return axios.get(`supplier?currentPage=${currentPage}&pageSize=${pageSize}`)
+    findAll(currentPage,pageSize,searchForm){
+        return axios.post(`supplier/findPage?currentPage=${currentPage}&pageSize=${pageSize}`,searchForm
+            // searchForm.supplierName,searchForm.supplierContact,searchForm.supplierPhone,
+            // searchForm.supplierAddress,searchForm.supplierBrank,searchForm.supplierBrankCode
+            )
     },
 
     findById(id){

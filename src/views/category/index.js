@@ -14,6 +14,8 @@ export default {
             formData:{},
             ids:[],
             dialogDeleteVisible:false,
+            categoryName:"",
+            formInLine:{}
         }
     },
     created() {
@@ -32,7 +34,7 @@ export default {
             }
         },
         async findAll() {
-            this.tableData  = await category.getTreeData()
+            this.tableData  = await category.getTreeData(this.categoryName)
         },
         async addOrEdit(){
             if(this.formData.id){

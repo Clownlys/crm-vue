@@ -14,8 +14,23 @@
       </el-button-group>
     </div>
 
-    <div class="search-box">
+    <div class="search-box" style="padding-top: 10px">
       <!--      搜索使用到的-->
+      <!--<el-form :inline="true" ref="form1" class="demo-from-inline">-->
+        <!--<el-form-item label="品牌名称" prop="brandName" size="mini">-->
+          <!--<el-input v-model="formInLine.brandName" placeholder="品牌名称"></el-input>-->
+          <!--<el-button type="primary" @click="searchPage" size="mini" >查询</el-button>-->
+        <!--</el-form-item>-->
+      <!--</el-form>-->
+      <el-form :inline="true" ref="form1" :model="formInLine" class="demo-form-inline">
+        <el-form-item label="品牌名称" size="mini" style="margin-top: 5px">
+          <el-input v-model="brandName" placeholder="品牌名称"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" size="mini" @click="findAll">查询</el-button>
+          <el-button size="mini" @click="brandName='',findAll()">刷新</el-button>
+        </el-form-item>
+      </el-form>
     </div>
 
     <div class="table-box">

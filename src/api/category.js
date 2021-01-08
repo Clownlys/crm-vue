@@ -1,8 +1,11 @@
 import axios from '../utils/baseAxios'
 let category={
 
-    getTreeData(){
-        return axios.get(`category/getTreeData`)
+    findNoPage(){
+        return axios.get(`category/findNoPage`)
+    },
+    getTreeData(categoryName){
+        return axios.get(`category/getTreeData?categoryName=${categoryName}`)
     },
     /**
      * findAll

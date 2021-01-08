@@ -1,49 +1,47 @@
-import brand from "@/api/brand";
+import goodsProduct from "@/api/goodsProduct";
+import brand from "@/api/brand"
+import category from "@/api/category"
 
 export default {
     name: "index",
     data() {
         return {
+            brandList:[],
+            categoryList:[],
             tableData: [],
             total: 0,
             currentPage: 1,
             pageSize: 5,
-            dialogFormVisible:false,
-            formData:{},
             ids:[],
             dialogDeleteVisible:false,
-            formInLine:{},
-            brandName:""
+            searchForm:{}
         }
     },
     created() {
         this.findAll();
+        this.findBrandList();
+        this.findCategoryList();
     },
     methods: {
+        async findBrandList(){
+            let response=await brand.findNoPage();
+            this.brandList=response.list;
+        },
+        async findCategoryList(){
+            let response=await category.findNoPage();
+            this.categoryList=response.list;
+        },
         async findAll() {
-            let response=await brand.searchPage(this.currentPage,this.pageSize,this.brandName)
+            let response = await goodsProduct.searchPage(this.currentPage, this.pageSize,this.searchForm)
             this.tableData = response.list;
             this.total=response.total;
-        },
-        // findAll(){
-        //     axios.get(`brand?currentPage=${currentPage}&pageSize=${pageSize}`)
-        // },
-        async addOrEdit(){
-            if(this.formData.id){
-                //修改
-                await brand.updateEntity(this.formData);
-            }else {
-                //新增
-                await brand.addEntity(this.formData);
-            }
-            this.findAll();
         },
         pageChange(page){
             this.currentPage=page;
             this.findAll();
         },
         async findById(id){
-            this.formData= await brand.findById(id);
+            this.formData= await goodsProduct.findById(id);
         },
         selectionChangeListener(selection){
             this.ids=[];
@@ -57,7 +55,7 @@ export default {
                     message:'请选择要删除的内容'
                 })
             }else {
-                await brand.deleteByIds(this.ids);
+                await goodsProduct.deleteByIds(this.ids);
                 this.findAll();
             }
         }

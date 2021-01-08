@@ -16,6 +16,15 @@
 
     <div class="search-box">
       <!--      搜索使用到的-->
+      <el-form :inline="true" ref="form1" :model="formInLine" class="demo-form-inline">
+        <el-form-item label="类型名称" size="mini" style="margin-top: 5px">
+          <el-input v-model="categoryName" placeholder="类型名称"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" size="mini" @click="findAll">查询</el-button>
+          <el-button size="mini" @click="categoryName='',findAll()">刷新</el-button>
+        </el-form-item>
+      </el-form>
     </div>
 
     <div class="table-box">

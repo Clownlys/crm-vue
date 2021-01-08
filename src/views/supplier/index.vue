@@ -16,6 +16,30 @@
 
     <div class="search-box">
       <!--      搜索使用到的-->
+      <el-form :inline="true" ref="form1" :model="searchForm" class="demo-form-inline">
+        <el-form-item label="供应商名称" size="mini" style="margin-top: 5px">
+          <el-input v-model="searchForm.supplierName" placeholder="供应商名称"></el-input>
+        </el-form-item>
+        <el-form-item label="联系人姓名" size="mini" style="margin-top: 5px">
+          <el-input v-model="searchForm.supplierContact" placeholder="联系人姓名"></el-input>
+        </el-form-item>
+        <el-form-item label="联系电话" size="mini" style="margin-top: 5px">
+          <el-input v-model="searchForm.supplierPhone" placeholder="联系电话"></el-input>
+        </el-form-item>
+        <el-form-item label="联系地址" size="mini" style="margin-top: 5px">
+          <el-input v-model="searchForm.supplierAddress" placeholder="联系地址"></el-input>
+        </el-form-item>
+        <el-form-item label="开户行" size="mini" style="margin-top: 5px">
+          <el-input v-model="searchForm.supplierBrank" placeholder="开户账号"></el-input>
+        </el-form-item>
+        <el-form-item label="开户账号" size="mini" style="margin-top: 5px">
+          <el-input v-model="searchForm.supplierBrankCode" placeholder="开户地址"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" size="mini" @click="findAll">查询</el-button>
+          <el-button size="mini" @click="searchForm={},findAll()">刷新</el-button>
+        </el-form-item>
+      </el-form>
     </div>
 
     <div class="table-box">
